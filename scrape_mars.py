@@ -4,6 +4,8 @@ import requests
 import pandas as pd
 from splinter import Browser 
 import time
+from flask import Flask, jsonify, render_template
+import pymongo
 
 def init_browser():
     # splinter
@@ -169,5 +171,5 @@ def scrape():
         hemi_dictionary['img_url'] = img_url
     
     mars_collection["hemisphere_images"] = hemisphere_image_urls
-
+    browser.quit()
     return mars_collection
